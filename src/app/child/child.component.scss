@@ -1,0 +1,76 @@
+
+.mainDiv{
+  background: #989898;
+}
+.color {
+  background: #2aa779;
+}
+  
+.wrapper{
+  height: 70px;
+  border-radius: 3px
+};
+.chilDiv{
+  
+  height: 70px;
+  border-radius: 3px;
+
+}
+.icon {
+    display: none;
+  }
+  .wrapper:hover  .icon {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  i {
+     border-radius: 50%;
+     margin-right: 16px;
+     background: #2aa779;
+  }
+  button {
+    margin-right: 16px
+  }
+.chilDiv:hover .icon{
+  cursor: pointer;
+  display: inline-block;
+};
+
+.tree li {
+  list-style-type:none;
+  margin:0;
+  padding:10px 0px 0 5px;
+  position:relative
+}
+.tree li::before, 
+.tree li::after {
+  content:'';
+  left:-44px;
+  position:absolute;
+  right:auto
+}
+.tree li::before {
+  border-left:2px dashed #2aa779;
+  // #269526;
+  bottom:0px;
+  height:100%;
+  top:0;
+  width:1px
+}
+.tree li::after {
+  border-top:2px dashed #2aa779;
+  height:55px;
+  top:43px;
+  width:35px
+}
+
+.tree>ul>li::before,
+.tree>ul>li::after {
+  border:0
+}
+.tree li:last-child::before {
+  height:40px
+}
+
+  

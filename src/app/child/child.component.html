@@ -1,0 +1,71 @@
+
+    <div class="tree mx-1">
+        <ul>
+            <li class="mb-4" *ngFor="let value of data; let i=index">
+                <div class="row wrapper  bg-white ">
+                    <div class="col-md-6 mt-4" *ngIf="value.edit==false">
+                        <h6>{{value.groupName}}</h6>
+                    </div>
+                    <div class="col-md-6 mt-2" *ngIf="value.edit==true">
+                        <label class="fs-6"> Group Name</label>
+                        <input type="text" [(ngModel)]="value.groupName" name="group"
+                            class="form-control form-control-sm mt-1">
+                    </div>
+                    <div class="col-md-6 icon text-white  ">
+                        <i class="fa-solid fa-trash float-end mt-4 p-2 " *ngIf="value.edit==false"
+                            (click)="deleteGroup(i)"></i>
+                        <i class="fa-solid fa-pencil float-end mt-4 p-2 " *ngIf="value.edit==false"
+                            (click)="editData(i)"></i>
+    
+                        <i class="fa-solid fa-square-plus float-end  mt-4 p-2" *ngIf="value.edit==false"
+                            (click)="createChildData(value,i)"></i>
+                        <button class="btn color btn-sm float-end mt-4 text-white" *ngIf="value.edit==true" 
+                            (click)="upDateDAta(i,value)">Update</button>
+                    </div>
+                </div>
+                    <ul>
+                        <li *ngFor="let child of value.childData; let j=index">
+                            <div class="row chilDiv bg-white " *ngIf="child.childSet == false ">
+                                <div class="col-md-6 mt-2" *ngIf="child.edit==false">
+                                    <p class="mt-2">{{child.childName}}</p>
+    
+                                </div>
+                                <div class="col-md-6 p-2" *ngIf="child.edit==true">
+                                    <label>Subgroup Name</label>
+                                    <input type="text" [(ngModel)]="child.childName" name="group"
+                                        class="form-control form-control-sm ">
+                                </div>
+                                <div class="col-md-6 icon mt-2 text-white" *ngIf="child.edit==false">
+                                    <i class="fa-solid fa-trash float-end mt-2 p-2 bg-success"
+                                        (click)="deleteChild(j,value.childData)"></i>
+                                    <i class="fa-solid fa-pencil float-end mt-2 p-2 bg-success"
+                                        (click)="editChildData(child)"></i>
+                                </div>
+                                <div class="col-md-6" *ngIf="child.edit==true">
+                                    <button class="btn btn-success btn-sm float-end mt-4"
+                                        (click)="upDateChild(child)">Update</button>
+                                </div>
+    
+    
+                            </div>
+                            <div class="row bg-white " style="border-radius: 5px;"
+                                *ngIf="child.childSet == true">
+                                <div class="col-md-6 p-2">
+                                    <label>Subgroup Name</label>
+                                    <input type="text" [(ngModel)]="childModel.childName" name="group"
+                                        class="form-control form-control-sm mt-1">
+                                </div>
+                                <div class="col-md-6  ">
+                                    <button class="btn btn-warning text-white btn-sm float-end mt-4"
+                                        (click)="cancel(i,child,value)">Cancel</button>
+                                    <button class="btn color btn-sm float-end mt-4 text-white"
+                                        (click)="addChild(i,child)">Add</button>
+    
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+              
+            </li>
+        </ul>
+    </div>
