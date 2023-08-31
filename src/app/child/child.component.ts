@@ -44,13 +44,8 @@ export class ChildComponent implements OnInit {
   };
 
   createChildData(value: any, i: number) {
-    this.data.forEach((element: any, index: number) => {
-     
-        if (i === index) {
-          element.childData.push(this.childModel);
-        }
-    });
-
+      value.childData.push(this.childModel);
+   
   };
   addChild(i: number, value: any) {
     this.toastr.info('Data Submitted...', 'Wait');
